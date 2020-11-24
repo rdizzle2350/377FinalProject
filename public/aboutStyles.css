@@ -33,3 +33,12 @@ p {
 {
 
 }
+.nav{
+    display: inline-block;
+  font-size: 2rem;
+  height: 3rem;
+  line-height: 1.7;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+}
