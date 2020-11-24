@@ -1,5 +1,6 @@
 /*CSS*/
 body {
+
 }
 
 .wrapper {
@@ -10,7 +11,11 @@ body {
 }
 
 .header {
-  
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: row wrap;
+    background-color: red;
+    color: white;
 }
 
 h1 {
@@ -20,5 +25,11 @@ p {
 
 }
 .description {
-    
+    margin-bottom: 10px;
+  display: flex;
+  flex-flow: row wrap;
+}
+.img
+{
+
 }
