@@ -1,7 +1,7 @@
 function matchingStreet(streetMatch, data) {
     return data.filter((item) => {
         const reg = new RegExp(streetMatch, 'gi');
-        return item.street_address.match(reg);
+        return item.street_address.match(reg) || item.zip.match(reg);
     });
 }
 
@@ -26,7 +26,7 @@ function showMatches(i, info) {
 
 function filterchoice(i, info) {
 
-    
+
 }
 
 async function main() {
