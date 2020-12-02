@@ -65,3 +65,20 @@ function dataret() {
         });
 }
 window.onload = dataret;
+// window.onload = mainThread;
+function displayresults(i, dataset) {
+    
+}
+
+// Map functions
+
+function initMap() {
+    // The location of college park
+    const colpar = { lat: 38.9897, lng: -76.9378 };
+    // The map, centered at college park
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 8,
+      center: colpar,
+    });
+  }
+  
