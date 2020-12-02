@@ -140,3 +140,11 @@ nav a, nav span {
 .footer {
   margin-top: 10px;
 }
+
+#map{
+  height: 400px;
+  width: 50%;
+}
+
+
+

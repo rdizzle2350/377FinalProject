@@ -45,14 +45,6 @@ async function main() {
     });
 }
 window.onload = main;
-// let map;
-
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById("map"), {
-//     center: { lat: 38.9897, lng: 76.9378 }
-//   });
-//   return map;
-// }
 
 // async function mainthread() {
 //     const data = await fetch('https://data.princegeorgescountymd.gov/resource/izam-a38m.json')
@@ -66,3 +58,19 @@ window.onload = main;
 // }
 
 // window.onload = mainThread;
+function displayresults(i, dataset) {
+    
+}
+
+// Map functions
+
+function initMap() {
+    // The location of college park
+    const colpar = { lat: 38.9897, lng: -76.9378 };
+    // The map, centered at college park
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 8,
+      center: colpar,
+    });
+  }
+  
