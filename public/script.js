@@ -36,7 +36,7 @@ async function main() {
         fetch('https://data.princegeorgescountymd.gov/resource/wb4e-w4nf.json')
     ]);
     console.log(data);
-    const json = await data;
+    const json = await data.json();
     const input = document.querySelector('input[type="text"]');
     input.addEventListener('input', (i) => {
         const showM = showMatches(i, json);
@@ -69,7 +69,7 @@ function initMap() {
     const colpar = { lat: 38.9897, lng: -76.9378 };
     // The map, centered at college park
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 9,
+      zoom: 10,
       center: colpar,
     });
   }
