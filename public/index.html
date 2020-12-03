@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    
+    <!-- Links to Leaflet Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
 
     <title>Final Project: Israel Gonzalez, Alexander Chui, Ravendra Nand, Brian Nganjo, Rishi Sudhakar, Sydney Anabaraonye</title>
 </head>
@@ -31,11 +36,15 @@
                 </form>
                 <h3>Map</h3>
                 <div id="map"> 
-                    <!-- apikey AIzaSyDf7TZyAxNpFFahn2LecJiSNGZfdBwCuig -->
-                    <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf7TZyAxNpFFahn2LecJiSNGZfdBwCuig&callback=initMap"
-                    ></script>
-                    
+                   <script>
+                       const map = L.map('map').setView([38.8780, -76.8317], 10);
+                       
+                       L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GaO7GYJ3WBq7xKVynSqM',{
+                            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+                       }).addTo(map);
+                       
+                       const marker = L.marker([38.8780, -76.8317]).addTo(map);
+                   </script> 
                 </div>
                 <form class="filters">
                     <h3>Filters</h3>

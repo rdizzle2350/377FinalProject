@@ -72,13 +72,15 @@ function displayresults(i, dataset) {
 
 // Map functions
 
-function initMap() {
-    // The location of college park
-    const colpar = { lat: 38.9897, lng: -76.9378 };
-    // The map, centered at college park
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 10,
-      center: colpar,
-    });
-  }
+// function initMap() {
+//     // The location of college park
+//     const colpar = { lat: 38.9897, lng: -76.9378 };
+//     // The map, centered at college park
+//     const map = new google.maps.Map(document.getElementById("map"), {
+//       zoom: 10,
+//       center: colpar,
+//     });
+//}
+
+
   
