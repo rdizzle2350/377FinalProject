@@ -1,7 +1,4 @@
 
-
-
-
 function matchingStreetCrime(streetMatch, data) {
     return data.filter((item) => {
         const reg = new RegExp(streetMatch, 'gi');
@@ -40,14 +37,13 @@ function showCrimeMatches(i, info) {
 
 
 // Map functions
+const ourmap = L.map('map').setView([38.8780, -76.8317], 10);
 
-function initMap() {
-    // The location of college park
-    const colpar = { lat: 38.9897, lng: -76.9378 };
-    // The map, centered at college park
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 8,
-        center: colpar,
-    });
-}
+const murl = 'https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GaO7GYJ3WBq7xKVynSqM'
+const attribution = '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
 
+L.tileLayer(murl,{attribution}).addTo(ourmap);
+
+const marker = L.marker([38.8780, -76.8317]).addTo(ourmap);
+
+  
