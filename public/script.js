@@ -81,6 +81,13 @@ function displayresults(i, dataset) {
 //       center: colpar,
 //     });
 //}
+const ourmap = L.map('map').setView([38.8780, -76.8317], 10);
 
+const murl = 'https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GaO7GYJ3WBq7xKVynSqM'
+const attribution = '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+
+L.tileLayer(murl,{attribution}).addTo(ourmap);
+
+const marker = L.marker([38.8780, -76.8317]).addTo(ourmap);
 
   
