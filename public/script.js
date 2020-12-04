@@ -1,7 +1,4 @@
 
-
-
-
 function matchingStreetCrime(streetMatch, data) {
     return data.filter((item) => {
         const reg = new RegExp(streetMatch, 'gi');
