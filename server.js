@@ -87,9 +87,9 @@ function getCrimeData(req, res) {
 
 
   fetch(baseURL)
-    .then((data) => data.json())
+    .then(data => data.json())
     // console.log(data)
-    .then((data) => {
+    .then(data => {
       const filtered = data.map((i) => ({
         date: i.date,
         lat: i.latitude,
@@ -99,8 +99,8 @@ function getCrimeData(req, res) {
       }));
       return filtered;
     })
-    .then((data) => {
-      res.send({ data: data }); 
+    .then(data => {
+      res.send(data); 
     })
     .catch((err) => {
       console.log(err);
@@ -118,9 +118,9 @@ function getPoliceData(req, res) {
 
 
   fetch(baseURL)
-    .then((data) => data.json())
+    .then(data => data.json())
     // console.log(data)
-    .then((data) => {
+    .then(data => {
       const filtered = data.map((i) => ({
         name: i.station_name,
         lat: i.station_address.latitude,
@@ -130,8 +130,8 @@ function getPoliceData(req, res) {
       return filtered;
     })
 
-    .then((data) => {
-      res.send({ data: data }); // return data to the front end
+    .then(data => {
+      res.send(data); // return data to the front end
     })
     .catch((err) => {
       console.log(err);

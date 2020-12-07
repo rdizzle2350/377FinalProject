@@ -29,6 +29,12 @@ function showCrimeMatches(i, info) {
     return placeInfoHTML;
 }
 
+crimedata = [];
+
+const endpoint = '/crime'
+fetch(endpoint).then(blob => blob.json())
+.then(data => crimedata.push(...data));
+
 
 // function filterchoice(i, info) {
 
