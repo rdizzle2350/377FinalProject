@@ -90,17 +90,17 @@ function getCrimeData(req, res) {
     .then((data) => data.json())
     // console.log(data)
     .then((data) => {
-      const filtered = data.map((i) => ({
+      const crimefiltered = data.map((i) => ({
         date: i.date,
         lat: i.latitude,
         lon: i.longitude,
         crime: i.clearance_code_inc_type,
         street: i.street_address
       }));
-      return filtered;
+      return crimefiltered;
     })
     .then((data) => {
-      res.send({ data: data }); 
+      res.send( data ); 
     })
     .catch((err) => {
       console.log(err);
