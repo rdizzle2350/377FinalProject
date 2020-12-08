@@ -87,7 +87,7 @@ function getCrimeData(req, res) {
 
 
   fetch(baseURL)
-    .then((data) => data.json())
+    .then(data => data.json())
     // console.log(data)
     .then((data) => {
       const crimefiltered = data.map((i) => ({
@@ -118,9 +118,9 @@ function getPoliceData(req, res) {
 
 
   fetch(baseURL)
-    .then((data) => data.json())
+    .then(data => data.json())
     // console.log(data)
-    .then((data) => {
+    .then(data => {
       const filtered = data.map((i) => ({
         name: i.station_name,
         lat: i.station_address.latitude,
