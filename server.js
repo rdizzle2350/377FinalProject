@@ -131,7 +131,7 @@ function getPoliceData(req, res) {
     })
 
     .then((data) => {
-      res.send({ data: data }); // return data to the front end
+      res.send( data ); // return data to the front end
     })
     .catch((err) => {
       console.log(err);
@@ -162,7 +162,7 @@ function getHospitalData(req, res) {
     })
 
     .then((data) => {
-      res.send({ data: data }); // returns data to the front end
+      res.send( data ); // returns data to the front end
     })
     .catch((err) => {
       console.log(err);
@@ -192,7 +192,7 @@ function getFireData(req, res) {
     })
 
     .then((data) => {
-      res.send({ data: data }); // returns data to the front end
+      res.send( data ); // returns data to the front end
     })
     .catch((err) => {
       console.log(err);
