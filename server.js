@@ -81,7 +81,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// filters the api and gets the crime data we want. to veiw do npm start and tpye in chrome localhos3000/"api name"
+// filters the api and gets the crime data we want. to veiw do npm start and tpye in chrome localhost:3000/"api name"
 function getCrimeData(req, res) {
   const baseURL = "https://data.princegeorgescountymd.gov/resource/wb4e-w4nf.json";
 
