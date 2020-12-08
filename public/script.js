@@ -1,3 +1,4 @@
+// Getting Crime Data to the map
 fetch("/crime")
   .then((response) => response.json())
   // .then(data => console.log(data));
@@ -7,11 +8,53 @@ function dumb(data) {
   const holder = data;
 //   console.log(holder);
 
+// Putting markers on Map
   for (var i = 0; i < holder.length; ++i) {
     //   console.log(holder[i].lat);
-    L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+    const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+    mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup(); //Add description of marker, Crime type.
   }
 }
+
+//Maybe add code for Police Stations below. Tried this but overwrites crime data...
+// fetch ("/police")
+//   .then((responseP) => responseP.json())
+//   .then((pol) => dumb(pol));
+// function dumb(police) {
+//   const holder = police;
+// //   console.log(holder);
+  
+// // Putting Police on Map
+//   for (var i = 0; i < holder.length; ++i) {
+//     //   console.log(holder[i].lat);
+//     const polIcon = L.icon({   //added a icon to identify Police Stations.
+//         iconUrl: 'Police-icon.png',
+//         iconSize: [30, 14],
+//         iconAnchor: [15, 12],
+//         popupAnchor: [15, 12],
+//     });
+
+//     const markPol = L.marker([holder[i].lat, holder[i].lon],{icon: polIcon}).addTo(ourmap);
+//     markPol.bindPopup(holder[i].name + " Police Station").openPopup(); //Add description of Police.
+//   }
+// }
+
+// Making the Map
+const ourmap = L.map("map").setView([38.878, -76.8317], 10);
+const murl =
+  "https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GaO7GYJ3WBq7xKVynSqM";
+const attribution =
+  '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
+
+L.tileLayer(murl, { attribution }).addTo(ourmap);
+
+// Maybe add some filter codes below.
+
+
+
+
+
+// SCRAPP CODE!!!!!!!! LOOK OVER BEFORE DELETION!!!!!!!
 
 // function showCrimeMatches(i, info) {
 //     console.log(i.target.value);
@@ -28,23 +71,17 @@ function dumb(data) {
 //     return placeInfoHTML;
 // }
 
-// Map functions
-const ourmap = L.map("map").setView([38.878, -76.8317], 10);
 
-const murl =
-  "https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GaO7GYJ3WBq7xKVynSqM";
-const attribution =
-  '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
+//MAP FUNCTIONS SCRAP!!
+//const marker = L.marker([38.878, -76.8317]).addTo(ourmap);
 
-L.tileLayer(murl, { attribution }).addTo(ourmap);
+// for (var i = 0; i < data.length; ++i) {
+//   console.log(data[i].lat);
+//   console.log(data[i].lon);
+//   const mark = L.marker([data[i].lat, data[i].lon]).addTo(ourmap); // makes markers
+//   mark.bindPopup("Crime Alert:").openPopup();// add marker description, crime type.
+// }
 
-const marker = L.marker([38.878, -76.8317]).addTo(ourmap);
-
-for (var i = 0; i < data.length; ++i) {
-  console.log(data[i].lat);
-  console.log(data[i].lon);
-  L.marker([data[i].lat, data[i].lon]).addTo(ourmap);
-}
 
 // crimeD = getcrimeDa;
 // for (var i=0; i < crimeD.length; ++i) {
