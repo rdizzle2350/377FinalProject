@@ -16,9 +16,28 @@ function dumb(data) {
   }
 }
 
-//Maybe add code for Police Stations below.
+//Maybe add code for Police Stations below. Tried this but overwrites crime data...
+// fetch ("/police")
+//   .then((responseP) => responseP.json())
+//   .then((pol) => dumb(pol));
+// function dumb(police) {
+//   const holder = police;
+// //   console.log(holder);
+  
+// // Putting Police on Map
+//   for (var i = 0; i < holder.length; ++i) {
+//     //   console.log(holder[i].lat);
+//     const polIcon = L.icon({   //added a icon to identify Police Stations.
+//         iconUrl: 'Police-icon.png',
+//         iconSize: [30, 14],
+//         iconAnchor: [15, 12],
+//         popupAnchor: [15, 12],
+//     });
 
-
+//     const markPol = L.marker([holder[i].lat, holder[i].lon],{icon: polIcon}).addTo(ourmap);
+//     markPol.bindPopup(holder[i].name + " Police Station").openPopup(); //Add description of Police.
+//   }
+// }
 
 // Making the Map
 const ourmap = L.map("map").setView([38.878, -76.8317], 10);
