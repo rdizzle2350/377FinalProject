@@ -99,8 +99,8 @@ function getCrimeData(req, res) {
       }));
       return crimefiltered;
     })
-    .then(data => {
-      res.send(data); 
+    .then((data) => {
+      res.send( data ); 
     })
     .catch((err) => {
       console.log(err);
