@@ -29,23 +29,79 @@
                     <li><a href="Documentation.html">Documentation</a></li>
                     </ul>
                   </nav>
-
+                
             <div class = "main">
-                <div class = "article">
-                <form class="search">
-                    <input type="text" class="textinput" placeholder="Search by Zip"></input>
+                <form class = 'filter' method="post">
+                <!-- <div class = "article"> -->
+                <div class="search">
+                    <input type="text" name="textinput" id = "textinput" placeholder="Search by Zip"></input>
+                </div>
+                <div id = 'searchWrapper'>
+                    <ul class = "locationList"></ul>
+                </div>
+
+                    <h3>Filters</h3>
+                    <h3>Emergancy Services</h3>
+                    <input name="police" type="checkbox" id="police">
+                    <label for="police">Police</label> 
+
+                    <input name="hospital" type="checkbox" id="hospital">
+                    <label for="hospital">Hospitals</label> 
+                    <h3>Time Frame</h3>
+
+                    <h3>Type or crime</h3>
+                    <input name="THEFT FROM AUTO" type="checkbox" id="THEFT FROM AUTO">
+                    <label for="THEFT FROM AUTO">THEFT FROM AUTO</label>
+
+                    <input name="SEX OFFENSE" type="checkbox" id="SEX OFFENSE">
+                    <label for="SEX OFFENSE">SEX OFFENSE</label>
+
+                    <input name="AUTO, STOLEN & RECOVERED" type="checkbox" id="AUTO, STOLEN & RECOVERED">
+                    <label for="AUTO, STOLEN & RECOVERED">AUTO, STOLEN & RECOVERED</label>
+
+                    <input name="ASSAULT, WEAPON" type="checkbox" id="ASSAULT, WEAPON">
+                    <label for="ASSAULT, WEAPON">ASSAULT, WEAPON</label>
+
+                    <input name="ROBBERY, OTHER" type="checkbox" id="ROBBERY, OTHER">
+                    <label for="ROBBERY, OTHER">ROBBERY, OTHER</label>
+
+                    <input name="AUTO, STOLEN" type="checkbox" id="AUTO, STOLEN">
+                    <label for="AUTO, STOLEN">AUTO, STOLEN</label>
+
+                    <input name="VANDALISM" type="checkbox" id="VANDALISM">
+                    <label for="VANDALISM">VANDALISM</label>
+
+                    <input name="ASSAULT" type="checkbox" id="ASSAULT">
+                    <label for="ASSAULT">ASSAULT</label>
+
+                    <input name="THEFT" type="checkbox" id="THEFT">
+                    <label for="THEFT">THEFT</label>
+
+                    <input name="B & E, RESIDENTIAL" type="checkbox" id="B & E, RESIDENTIAL">
+                    <label for="B & E, RESIDENTIAL">B & E, RESIDENTIAL</label>
+
+                    <input name="ASSAULT, SHOOTING" type="checkbox" id="ASSAULT, SHOOTING">
+                    <label for="ASSAULT, SHOOTING">ASSAULT, SHOOTING</label>
+
+                    <input name="ROBBERY, VEHICLE" type="checkbox" id="ROBBERY, VEHICLE">
+                    <label for="ROBBERY, VEHICLE">ROBBERY, VEHICLE</label>
+
+                    <input name="ROBBERY, RESIDENTIAL" type="checkbox" id="ROBBERY, RESIDENTIAL">
+                    <label for="ROBBERY, RESIDENTIAL">ROBBERY, RESIDENTIAL</label>
+
+                    <input name="HOMICIDE" type="checkbox" id="HOMICIDE">
+                    <label for="HOMICIDE">HOMICIDE</label>
+
+                    <!-- <input type="text" class="textinput" placeholder="Time Period"></input> <br>
+                    <input type="text" class="textinput" placeholder="Emergancy Services"></input><br>
+                    <input type="text" class="textinput" placeholder="filter3"></input><br> -->
+                
                 </form>
                 <h3>Map</h3>
-                <div id= 'map'> 
-                    
+                <div id= 'map'>
                 </div>
-                <form class="filters">
-                    <h3>Filters</h3>
-                    <input type="text" class="textinput" placeholder="Time Period"></input> <br>
-                    <input type="text" class="textinput" placeholder="Emergancy Services"></input><br>
-                    <input type="text" class="textinput" placeholder="filter3"></input><br>
-                </form>
-            </div>  
+            </div> 
+
 
             <!-- <div class = "aside">
     
