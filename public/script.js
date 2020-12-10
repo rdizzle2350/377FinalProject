@@ -114,7 +114,8 @@
 
 // -----------------------------------End of Hospital-----------------
 
-   
+
+const mapLayer = L.layerGroup([]); //Trial pf adding layer
       
 function poilceData(){
    fetch ("/police")
@@ -140,9 +141,11 @@ function poilceData(){
 }
 
 document.querySelector("input[name=police]").addEventListener('change', function() {
-  if(this.checked) ourmap.addLayer(poilceData())
-    else ourmap.removeLayer(poilceData())
-  })
+  if(this.checked) mapLayer.addLayer(poilceData())
+    else mapLayer.removeLayer(poilceData())
+  }) //Adding/ removing(attempt) the layer from map with check box click or not.
+
+
 //-----------------------------Map--------------------
 // Making the Map
 const ourmap = L.map("map").setView([38.878, -76.8317], 10);
@@ -152,6 +155,7 @@ const attribution =
   '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
 
 L.tileLayer(murl, { attribution }).addTo(ourmap);
+// mapLayer.addTo(ourmap) // does not quite work.
 
 //-------------------------end of map-----------------
 
