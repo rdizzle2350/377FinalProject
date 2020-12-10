@@ -50,6 +50,39 @@
 //   }
 // }
 // })
+function crimeData() {
+  fetch("/crime")
+    .then((response) => response.json())
+    // .then(data => console.log(data));
+    .then((data) => dumb(data));
+
+  //   function dumbone(data) {
+  //     const holder = data;
+  //   }
+
+  function dumb(data) {
+    const holder = data;
+    //   console.log(holder);
+
+    // Putting markers on Map
+    for (var i = 0; i < holder.length; ++i) {
+      //   console.log(holder[i].lat);
+      const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+      mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup(); //Add description of marker, Crime type.
+    }
+  }
+}
+
+document
+  .querySelector("input[name=Crime]")
+  .addEventListener("change", function () {
+    if (this.checked) {
+      mapLayer.addLayer(crimeData());
+    } else {
+      mapLayer.removeLayer(crimeData());
+    }
+  }); //Adding/ removing(attempt) the layer from map with check box click or not.
+
 //--------------------------End Crime--------------------------------
 
 //------------------------------Police--------------------------------------------
@@ -64,8 +97,7 @@
 // function dumbpolice(police) {
 //   const holderpolice = police;
 //     // console.log(holderpolice);
-    
-  
+
 // // Putting Police on Map
 //   for (var i = 0; i < holderpolice.length; ++i) {
 //     //   console.log(holder[i].lat);
@@ -80,7 +112,7 @@
 //     markPol.bindPopup(holderpolice[i].name + " Police Station").openPopup(); //Add description of Police.
 //   }
 // }
-// }) 
+// })
 
 //------------------------------End of Police---------------------------
 
@@ -94,8 +126,7 @@
 // function dumbhospital(hospital) {
 //   const holderhospital = hospital;
 //     // console.log(holderpolice);
-    
-  
+
 // // Putting Hospital on Map
 //   for (var i = 0; i < holderhospital.length; ++i) {
 //     //   console.log(holder[i].lat);
@@ -114,37 +145,77 @@
 
 // -----------------------------------End of Hospital-----------------
 
-
 const mapLayer = L.layerGroup([]); //Trial pf adding layer
-      
-function poilceData(){
-   fetch ("/police")
+
+function poilceData() {
+  fetch("/police")
     .then((responseP) => responseP.json())
     .then((pol) => dumbpolice(pol));
-    function dumbpolice(police) {
+  function dumbpolice(police) {
     const holderpolice = police;
-      console.log(holderpolice);
-      // Putting Police on Map
+    // console.log(holderpolice);
+    // Putting Police on Map
     for (var i = 0; i < holderpolice.length; ++i) {
       //   console.log(holder[i].lat);
-      const polIcon = L.icon({   //added a icon to identify Police Stations.
-          iconUrl: 'Police-icon.png',
-          iconSize: [30, 14],
-          iconAnchor: [15, 12],
-          popupAnchor: [15, 12],
+      const polIcon = L.icon({
+        //added a icon to identify Police Stations.
+        iconUrl: "Police-icon.png",
+        iconSize: [30, 14],
+        iconAnchor: [15, 12],
+        popupAnchor: [15, 12],
       });
 
-      const markPol = L.marker([holderpolice[i].lat, holderpolice[i].lon],{icon: polIcon}).addTo(ourmap);
+      const markPol = L.marker([holderpolice[i].lat, holderpolice[i].lon], {
+        icon: polIcon,
+      }).addTo(ourmap);
       markPol.bindPopup(holderpolice[i].name + " Police Station").openPopup(); //Add description of Police.
     }
-    }
+  }
 }
 
-document.querySelector("input[name=police]").addEventListener('change', function() {
-  if(this.checked) mapLayer.addLayer(poilceData())
-    else mapLayer.removeLayer(poilceData())
-  }) //Adding/ removing(attempt) the layer from map with check box click or not.
+function hospitalData() {
+  fetch("/hospital")
+    .then((responseP) => responseP.json())
+    .then((hos) => dumbhospital(hos));
+  function dumbhospital(hospital) {
+    const holderhospital = hospital;
+    // console.log(holderpolice);
 
+    // Putting Hospital on Map
+    for (var i = 0; i < holderhospital.length; ++i) {
+      //   console.log(holder[i].lat);
+      const hosIcon = L.icon({
+        //added a icon to identify Hospital.
+        iconUrl: "hospital-icon.png",
+        iconSize: [30, 14],
+        iconAnchor: [15, 12],
+        popupAnchor: [15, 12],
+      });
+
+      const markhos = L.marker([holderhospital[i].lat, holderhospital[i].lon], {
+        icon: hosIcon,
+      }).addTo(ourmap);
+      markhos.bindPopup(holderhospital[i].name + " Hospital").openPopup(); //Add description of Police.
+    }
+  }
+}
+
+document
+  .querySelector("input[name=police]")
+  .addEventListener("change", function () {
+    if (this.checked) {
+      mapLayer.addLayer(poilceData());
+    } else {
+      mapLayer.removeLayer(poilceData());
+    }
+  }); //Adding/ removing(attempt) the layer from map with check box click or not.
+
+document
+  .querySelector("input[name=hospital]")
+  .addEventListener("change", function () {
+    if (this.checked) mapLayer.addLayer(hospitalData());
+    else mapLayer.removeLayer(hospitalData());
+  }); //A
 
 //-----------------------------Map--------------------
 // Making the Map
@@ -159,12 +230,7 @@ L.tileLayer(murl, { attribution }).addTo(ourmap);
 
 //-------------------------end of map-----------------
 
-
 // Maybe add some filter codes below.
-
-
-
-
 
 // SCRAPP CODE!!!!!!!! LOOK OVER BEFORE DELETION!!!!!!!
 
@@ -188,7 +254,6 @@ L.tileLayer(murl, { attribution }).addTo(ourmap);
 //     }
 // }
 
-
 // function showCrimeMatches(i, info) {
 //     console.log(i.target.value);
 //     const matching = matchingStreet(i.target.value, info);
@@ -204,7 +269,6 @@ L.tileLayer(murl, { attribution }).addTo(ourmap);
 //     return placeInfoHTML;
 // }
 
-
 //MAP FUNCTIONS SCRAP!!
 //const marker = L.marker([38.878, -76.8317]).addTo(ourmap);
 
@@ -214,7 +278,6 @@ L.tileLayer(murl, { attribution }).addTo(ourmap);
 //   const mark = L.marker([data[i].lat, data[i].lon]).addTo(ourmap); // makes markers
 //   mark.bindPopup("Crime Alert:").openPopup();// add marker description, crime type.
 // }
-
 
 // crimeD = getcrimeDa;
 // for (var i=0; i < crimeD.length; ++i) {
