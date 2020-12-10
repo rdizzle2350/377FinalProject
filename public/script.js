@@ -1,6 +1,9 @@
 // const el = document.getElementById("outside");
 // el.addEventListener("click", dumbpolice(), false);
 
+//----------------------------Crime-------------------------------------------
+
+// // ---Trial 1
 // Getting Crime Data to the map
 // fetch("/crime")
 //   .then((response) => response.json())
@@ -23,30 +26,147 @@
 //   }
 // }
 
+// // ---Trial 2--
+// document.addEventListener('click', async (e) => {
+//     e.preventDefault();
+//     fetch("/crime")
+//   .then((response) => response.json())
+//   // .then(data => console.log(data));
+//   .then((data) => dumb(data));
 
-document.addEventListener('click', async (e) => {
-    e.preventDefault();
-    fetch("/crime")
-  .then((response) => response.json())
-  // .then(data => console.log(data));
-  .then((data) => dumb(data));
+// //   function dumbone(data) {
+// //     const holder = data;
+// //   }
 
-//   function dumbone(data) {
-//     const holder = data;
+// function dumb(data) {
+//   const holder = data;
+// //   console.log(holder);
+
+// // Putting markers on Map
+//   for (var i = 0; i < holder.length; ++i) {
+//     //   console.log(holder[i].lat);
+//     const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+//     mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup(); //Add description of marker, Crime type.
 //   }
+// }
+// })
+//--------------------------End Crime--------------------------------
 
-function dumb(data) {
-  const holder = data;
-//   console.log(holder);
+//------------------------------Police--------------------------------------------
 
-// Putting markers on Map
-  for (var i = 0; i < holder.length; ++i) {
-    //   console.log(holder[i].lat);
-    const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
-    mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup(); //Add description of marker, Crime type.
-  }
+//Maybe add code for Police Stations below. Tried this but overwrites crime data...
+// //Trial 1:
+// document.addEventListener('click', async (e) => {
+//     e.preventDefault();
+//     fetch ("/police")
+//   .then((responseP) => responseP.json())
+//   .then((pol) => dumbpolice(pol));
+// function dumbpolice(police) {
+//   const holderpolice = police;
+//     // console.log(holderpolice);
+    
+  
+// // Putting Police on Map
+//   for (var i = 0; i < holderpolice.length; ++i) {
+//     //   console.log(holder[i].lat);
+//     const polIcon = L.icon({   //added a icon to identify Police Stations.
+//         iconUrl: 'Police-icon.png',
+//         iconSize: [30, 14],
+//         iconAnchor: [15, 12],
+//         popupAnchor: [15, 12],
+//     });
+
+//     const markPol = L.marker([holderpolice[i].lat, holderpolice[i].lon],{icon: polIcon}).addTo(ourmap);
+//     markPol.bindPopup(holderpolice[i].name + " Police Station").openPopup(); //Add description of Police.
+//   }
+// }
+// }) 
+
+//------------------------------End of Police---------------------------
+
+//-----------------------------Hospital----------------------------------
+
+// document.addEventListener('click', async (e) => {
+//     e.preventDefault();
+//     fetch ("/hospital")
+//   .then((responseP) => responseP.json())
+//   .then((hos) => dumbhospital(hos));
+// function dumbhospital(hospital) {
+//   const holderhospital = hospital;
+//     // console.log(holderpolice);
+    
+  
+// // Putting Hospital on Map
+//   for (var i = 0; i < holderhospital.length; ++i) {
+//     //   console.log(holder[i].lat);
+//     const hosIcon = L.icon({   //added a icon to identify Hospital.
+//         iconUrl: 'hospital-icon.png',
+//         iconSize: [30, 14],
+//         iconAnchor: [15, 12],
+//         popupAnchor: [15, 12],
+//     });
+
+//     const markhos = L.marker([holderhospital[i].lat, holderhospital[i].lon],{icon: hosIcon}).addTo(ourmap);
+//     markhos.bindPopup(holderhospital[i].name + " Hospital").openPopup(); //Add description of Police.
+//   }
+// }
+// })
+
+// -----------------------------------End of Hospital-----------------
+
+
+const mapLayer = L.layerGroup([]); //Trial pf adding layer
+      
+function poilceData(){
+   fetch ("/police")
+    .then((responseP) => responseP.json())
+    .then((pol) => dumbpolice(pol));
+    function dumbpolice(police) {
+    const holderpolice = police;
+      console.log(holderpolice);
+      // Putting Police on Map
+    for (var i = 0; i < holderpolice.length; ++i) {
+      //   console.log(holder[i].lat);
+      const polIcon = L.icon({   //added a icon to identify Police Stations.
+          iconUrl: 'Police-icon.png',
+          iconSize: [30, 14],
+          iconAnchor: [15, 12],
+          popupAnchor: [15, 12],
+      });
+
+      const markPol = L.marker([holderpolice[i].lat, holderpolice[i].lon],{icon: polIcon}).addTo(ourmap);
+      markPol.bindPopup(holderpolice[i].name + " Police Station").openPopup(); //Add description of Police.
+    }
+    }
 }
-})
+
+document.querySelector("input[name=police]").addEventListener('change', function() {
+  if(this.checked) mapLayer.addLayer(poilceData())
+    else mapLayer.removeLayer(poilceData())
+  }) //Adding/ removing(attempt) the layer from map with check box click or not.
+
+
+//-----------------------------Map--------------------
+// Making the Map
+const ourmap = L.map("map").setView([38.878, -76.8317], 10);
+const murl =
+  "https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GaO7GYJ3WBq7xKVynSqM";
+const attribution =
+  '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
+
+L.tileLayer(murl, { attribution }).addTo(ourmap);
+// mapLayer.addTo(ourmap) // does not quite work.
+
+//-------------------------end of map-----------------
+
+
+// Maybe add some filter codes below.
+
+
+
+
+
+// SCRAPP CODE!!!!!!!! LOOK OVER BEFORE DELETION!!!!!!!
 
 // function matchingStreets() {
 //     return dumbone().filter() => {
@@ -68,102 +188,6 @@ function dumb(data) {
 //     }
 // }
 
-
-
-//Maybe add code for Police Stations below. Tried this but overwrites crime data...
-
-document.addEventListener('click', async (e) => {
-    e.preventDefault();
-    fetch ("/police")
-  .then((responseP) => responseP.json())
-  .then((pol) => dumbpolice(pol));
-function dumbpolice(police) {
-  const holderpolice = police;
-    // console.log(holderpolice);
-    
-  
-// Putting Police on Map
-  for (var i = 0; i < holderpolice.length; ++i) {
-    //   console.log(holder[i].lat);
-    const polIcon = L.icon({   //added a icon to identify Police Stations.
-        iconUrl: 'Police-icon.png',
-        iconSize: [30, 14],
-        iconAnchor: [15, 12],
-        popupAnchor: [15, 12],
-    });
-
-    const markPol = L.marker([holderpolice[i].lat, holderpolice[i].lon],{icon: polIcon}).addTo(ourmap);
-    markPol.bindPopup(holderpolice[i].name + " Police Station").openPopup(); //Add description of Police.
-  }
-}
-}) 
-
-
-document.addEventListener('click', async (e) => {
-    e.preventDefault();
-    fetch ("/hospital")
-  .then((responseP) => responseP.json())
-  .then((hos) => dumbhospital(hos));
-function dumbhospital(hospital) {
-  const holderhospital = hospital;
-    // console.log(holderpolice);
-    
-  
-// Putting Police on Map
-  for (var i = 0; i < holderhospital.length; ++i) {
-    //   console.log(holder[i].lat);
-    const hosIcon = L.icon({   //added a icon to identify Police Stations.
-        iconUrl: 'hospital-icon.png',
-        iconSize: [30, 14],
-        iconAnchor: [15, 12],
-        popupAnchor: [15, 12],
-    });
-
-    const markhos = L.marker([holderhospital[i].lat, holderhospital[i].lon],{icon: hosIcon}).addTo(ourmap);
-    markhos.bindPopup(holderhospital[i].name + "Hospital").openPopup(); //Add description of Police.
-  }
-}
-}) 
-
-// fetch ("/police")
-//   .then((responseP) => responseP.json())
-//   .then((pol) => dumbpolice(pol));
-// function dumbpolice(police) {
-//   const holderpolice = police;
-//     console.log(holderpolice);
-    
-  
-// // Putting Police on Map
-//   for (var i = 0; i < holderpolice.length; ++i) {
-//     //   console.log(holder[i].lat);
-//     const polIcon = L.icon({   //added a icon to identify Police Stations.
-//         iconUrl: 'Police-icon.png',
-//         iconSize: [30, 14],
-//         iconAnchor: [15, 12],
-//         popupAnchor: [15, 12],
-//     });
-
-//     const markPol = L.marker([holderpolice[i].lat, holderpolice[i].lon],{icon: polIcon}).addTo(ourmap);
-//     markPol.bindPopup(holderpolice[i].name + " Police Station").openPopup(); //Add description of Police.
-//   }
-// }
-//Hi
-// Making the Map
-const ourmap = L.map("map").setView([38.878, -76.8317], 10);
-const murl =
-  "https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GaO7GYJ3WBq7xKVynSqM";
-const attribution =
-  '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
-
-L.tileLayer(murl, { attribution }).addTo(ourmap);
-
-// Maybe add some filter codes below.
-
-
-
-
-
-// SCRAPP CODE!!!!!!!! LOOK OVER BEFORE DELETION!!!!!!!
 
 // function showCrimeMatches(i, info) {
 //     console.log(i.target.value);
