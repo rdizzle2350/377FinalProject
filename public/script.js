@@ -50,38 +50,296 @@
 //   }
 // }
 // })
-function crimeData() {
+// this gets data and sends to the dumb function
+
+
+window.onload = function crimeData() {
   fetch("/crime")
     .then((response) => response.json())
     // .then(data => console.log(data));
     .then((data) => dumb(data));
-
-  //   function dumbone(data) {
-  //     const holder = data;
-  //   }
-
-  function dumb(data) {
-    const holder = data;
-    //   console.log(holder);
-
-    // Putting markers on Map
-    for (var i = 0; i < holder.length; ++i) {
-      //   console.log(holder[i].lat);
-      const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
-      mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup(); //Add description of marker, Crime type.
-    }
-  }
 }
 
-document
+
+//this function returns the data does all of the work
+function dumb(data) {
+  const holder = data;
+  
+  document
   .querySelector("input[name=Crime]")
   .addEventListener("change", function () {
     if (this.checked) {
-      mapLayer.addLayer(crimeData());
-    } else {
-      mapLayer.removeLayer(crimeData());
+        for (var i=0; i < holder.length; i++){
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+        }
     }
-  }); //Adding/ removing(attempt) the layer from map with check box click or not.
+  });
+  
+  // theft from auto markers
+  document.getElementById('THEFT FROM AUTO')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'THEFT FROM AUTO') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // sex offense markers
+  document.getElementById('SEX OFFENSE')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'SEX OFFENSE') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // AUTO, STOLEN & RECOVERED markers
+  document.getElementById('AUTO, STOLEN & RECOVERED')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'AUTO, STOLEN & RECOVERED') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // ASSAULT, WEAPON markers
+  document.getElementById('ASSAULT, WEAPON')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'ASSAULT, WEAPON') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // ROBBERY, OTHER markers
+  document.getElementById('ROBBERY, OTHER')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'ROBBERY, OTHER') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // AUTO, STOLEN markers
+  document.getElementById('AUTO, STOLEN')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'AUTO, STOLEN') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // VANDALISM markers
+  document.getElementById('VANDALISM')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'VANDALISM') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // ASSAULT markers
+  document.getElementById('ASSAULT')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'ASSAULT') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // THEFT markers
+  document.getElementById('THEFT')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'THEFT') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // B & E, RESIDENTIAL markers
+  document.getElementById('B & E, RESIDENTIAL')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'B & E, RESIDENTIAL') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });  
+
+  // ASSAULT, SHOOTING markers
+  document.getElementById('ASSAULT, SHOOTING')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'ASSAULT, SHOOTING') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });  
+
+  // ROBBERY, VEHICLE markers
+  document.getElementById('ROBBERY, VEHICLE')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'ROBBERY, VEHICLE') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // ROBBERY, RESIDENTIAL markers
+  document.getElementById('ROBBERY, RESIDENTIAL')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'ROBBERY, RESIDENTIAL') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+  // HOMICIDE markers
+  document.getElementById('HOMICIDE')
+  .addEventListener("change", function () {
+    if (this.checked) {
+      console.log('test');
+        for (var i=0; i < holder.length; i++){
+            if (holder[i].crime == 'HOMICIDE') {
+              
+                const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+                mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup();
+            }
+        }
+    }
+  });
+
+}
+
+// Maps our points
+// function mappoints(holder) {
+//   // Putting markers on Map
+//   for (var i = 0; i < holder.length; ++i) {
+//     //   console.log(holder[i].lat);
+//     const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+//     mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup(); //Add description of marker, Crime type.
+//   }
+// }
+
+// function crimeData() {
+//     fetch("/crime")
+//         .then((response) => response.json())
+//         // .then(data => console.log(data));
+//         .then((data) => dumb(data));
+
+//     //   function dumbone(data) {
+//     //     const holder = data;
+//     //   }
+
+//     function dumb(data) {
+//         holder = data;
+//         //   console.log(holder);
+
+//         // Putting markers on Map
+//         for (var i = 0; i < holder.length; ++i) {
+//             //   console.log(holder[i].lat);
+//             const mark = L.marker([holder[i].lat, holder[i].lon]).addTo(ourmap);
+//             mark.bindPopup("Crime Alert: " + holder[i].crime).openPopup(); //Add description of marker, Crime type.
+//         }
+//     }
+// }
+
+// document
+//     .querySelector("input[name=THEFT FROM AUTO]")
+//     .addEventListener("change", function () {
+//         if (this.checked) {
+//             mapLayer.addLayer(crimeData());
+//         } else {
+//             mapLayer.removeLayer(crimeData());
+//         }
+//     });
+
+// document
+//   .querySelector("input[name=Crime]")
+//   .addEventListener("change", function () {
+//     if (this.checked) {
+//       mapLayer.addLayer(crimeData());
+//     } else {
+//       mapLayer.removeLayer(crimeData());
+//     }
+//   }); //Adding/ removing(attempt) the layer from map with check box click or not.
 
 //--------------------------End Crime--------------------------------
 

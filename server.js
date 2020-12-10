@@ -98,6 +98,7 @@ function getCrimeData(req, res) {
         street: i.street_address
       }));
       return crimefiltered;
+      
     })
     .then((data) => {
       res.send( data ); 
