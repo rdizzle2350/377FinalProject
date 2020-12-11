@@ -242,9 +242,9 @@ var mapLayer = L.layerGroup([]); //Trial pf adding layer
 function poilceData() {
   fetch("/police")
     .then((responseP) => responseP.json())
-    .then((pol) => dumbpolice(pol,markPol));
+    .then((pol) => dumbpolice(pol));
   const markPol = L.marker();
-  function dumbpolice(police,markP) {
+  function dumbpolice(police) {
     const holderpolice = police;
     // console.log(holderpolice);
     // Putting Police on Map
@@ -258,9 +258,9 @@ function poilceData() {
         popupAnchor: [15, 12],
       });
 
-       markP = L.marker([holderpolice[i].lat, holderpolice[i].lon], {
+       const markP = L.marker([holderpolice[i].lat, holderpolice[i].lon], {
         icon: polIcon,
-      })
+      }).addTo(ourmap)
       markP.bindPopup(holderpolice[i].name + " Police Station").openPopup(); //Add description of Police.
       
     }
