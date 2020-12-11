@@ -107,8 +107,7 @@ nav a, nav span {
 
 .main {
   display: flex;
-  margin: auto;
-  width: 75%;
+  margin: 15px;
   padding: 10px;
 }
 
@@ -142,8 +141,13 @@ nav a, nav span {
 }
 
 #map{
-  height: 400px;
-  width: 50%;
+  height: 500px;
+  width: 60%;
+}
+
+.filter{
+width: 40%;
+
 }
 
 
