@@ -237,7 +237,7 @@ function dumb(data) {
 // ---------------------------End of Crime Filters-----------------------
 
 //----------------------------Police Data ---------------
-const mapLayer = L.layerGroup([]); //Trial pf adding layer
+var mapLayer = L.layerGroup([]); //Trial pf adding layer
 
 function poilceData() {
   fetch("/police")
@@ -306,7 +306,7 @@ document
     if (this.checked) {
       mapLayer.addLayer(poilceData());
     } else {
-      mapLayer.removeLayer(poilceData());
+      mapLayer.clear();
     }
   }); //Adding/ removing(attempt) the layer from map with check box click or not.
 
