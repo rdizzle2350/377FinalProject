@@ -242,8 +242,9 @@ const mapLayer = L.layerGroup([]); //Trial pf adding layer
 function poilceData() {
   fetch("/police")
     .then((responseP) => responseP.json())
-    .then((pol) => dumbpolice(pol));
-  function dumbpolice(police) {
+    .then((pol) => dumbpolice(pol,markPol));
+  const markPol = L.marker();
+  function dumbpolice(police,markP) {
     const holderpolice = police;
     // console.log(holderpolice);
     // Putting Police on Map
@@ -257,12 +258,13 @@ function poilceData() {
         popupAnchor: [15, 12],
       });
 
-      const markPol = L.marker([holderpolice[i].lat, holderpolice[i].lon], {
+       markP = L.marker([holderpolice[i].lat, holderpolice[i].lon], {
         icon: polIcon,
-      }).addTo(ourmap);
-      markPol.bindPopup(holderpolice[i].name + " Police Station").openPopup(); //Add description of Police.
+      })
+      markP.bindPopup(holderpolice[i].name + " Police Station").openPopup(); //Add description of Police.
+      
     }
-  }
+  }return markP;
 }
 
 //--------------End of Police Data----------------
@@ -324,7 +326,7 @@ const attribution =
   '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
 
 L.tileLayer(murl, { attribution }).addTo(ourmap);
-// mapLayer.addTo(ourmap) // does not quite work.
+ mapLayer.addTo(ourmap) // does not quite work.
 
 //-------------------------end of map-----------------
 
