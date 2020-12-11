@@ -35,58 +35,82 @@
 
                     <h3><u>Filters</u></h3>
                     <h3>Emergency Services</h3>
-                    <input name="police" type="checkbox" id="police">
-                    <label for="police">Police</label> 
+                    <ul class="EmergencyFilter"> 
+                        <li>
+                            <input name="police" type="checkbox" id="police">
+                            <label for="police">Police</label> 
+                        </li>
 
-                    <input name="hospital" type="checkbox" id="hospital">
-                    <label for="hospital">Hospitals</label> 
+                        <li>
+                            <input name="hospital" type="checkbox" id="hospital">
+                            <label for="hospital">Hospitals</label> 
+                        </li>
+                    </ul>
 
                     <h3>Type or crime</h3>
-                    <input name="Crime" type="checkbox" id="Crime">
-                    <label for="Crime">All Crime</label>
+                    <ul class="CrimeFilter">
+                        <li>
+                            <input name="Crime" type="checkbox" id="Crime">
+                            <label for="Crime">All Crime</label>
+                        </li>
+                        <li>
+                            <input name="THEFT FROM AUTO" type="checkbox" id="THEFT FROM AUTO">
+                            <label for="THEFT FROM AUTO">THEFT FROM AUTO</label>
+                        </li>
+                        <li>
+                            <input name="SEX OFFENSE" type="checkbox" id="SEX OFFENSE">
+                            <label for="SEX OFFENSE">SEX OFFENSE</label>
+                        </li>
+                        <li>
+                            <input name="AUTO, STOLEN & RECOVERED" type="checkbox" id="AUTO, STOLEN & RECOVERED">
+                            <label for="AUTO, STOLEN & RECOVERED">AUTO, STOLEN & RECOVERED</label>
+                        </li>
+                        <li>
+                            <input name="ASSAULT, WEAPON" type="checkbox" id="ASSAULT, WEAPON">
+                            <label for="ASSAULT, WEAPON">ASSAULT, WEAPON</label>
+                        </li>
+                        <li>
+                            <input name="ROBBERY, OTHER" type="checkbox" id="ROBBERY, OTHER">
+                            <label for="ROBBERY, OTHER">ROBBERY, OTHER</label>
+                        </li>
+                        <li>
+                            <input name="AUTO, STOLEN" type="checkbox" id="AUTO, STOLEN">
+                              <label for="AUTO, STOLEN">AUTO, STOLEN</label>
 
-                    <input name="THEFT FROM AUTO" type="checkbox" id="THEFT FROM AUTO">
-                    <label for="THEFT FROM AUTO">THEFT FROM AUTO</label>
-
-                    <input name="SEX OFFENSE" type="checkbox" id="SEX OFFENSE">
-                    <label for="SEX OFFENSE">SEX OFFENSE</label>
-
-                    <input name="AUTO, STOLEN & RECOVERED" type="checkbox" id="AUTO, STOLEN & RECOVERED">
-                    <label for="AUTO, STOLEN & RECOVERED">AUTO, STOLEN & RECOVERED</label>
-
-                    <input name="ASSAULT, WEAPON" type="checkbox" id="ASSAULT, WEAPON">
-                    <label for="ASSAULT, WEAPON">ASSAULT, WEAPON</label>
-
-                    <input name="ROBBERY, OTHER" type="checkbox" id="ROBBERY, OTHER">
-                    <label for="ROBBERY, OTHER">ROBBERY, OTHER</label>
-
-                    <input name="AUTO, STOLEN" type="checkbox" id="AUTO, STOLEN">
-                    <label for="AUTO, STOLEN">AUTO, STOLEN</label>
-
-                    <input name="VANDALISM" type="checkbox" id="VANDALISM">
-                    <label for="VANDALISM">VANDALISM</label>
-
-                    <input name="ASSAULT" type="checkbox" id="ASSAULT">
-                    <label for="ASSAULT">ASSAULT</label>
-
-                    <input name="THEFT" type="checkbox" id="THEFT">
-                    <label for="THEFT">THEFT</label>
-
-                    <input name="B & E, RESIDENTIAL" type="checkbox" id="B & E, RESIDENTIAL">
-                    <label for="B & E, RESIDENTIAL">BREAKING & ENTERING, RESIDENTIAL</label>
-
-                    <input name="ASSAULT, SHOOTING" type="checkbox" id="ASSAULT, SHOOTING">
-                    <label for="ASSAULT, SHOOTING">ASSAULT, SHOOTING</label>
-
-                    <input name="ROBBERY, VEHICLE" type="checkbox" id="ROBBERY, VEHICLE">
-                    <label for="ROBBERY, VEHICLE">ROBBERY, VEHICLE</label>
-
-                    <input name="ROBBERY, RESIDENTIAL" type="checkbox" id="ROBBERY, RESIDENTIAL">
-                    <label for="ROBBERY, RESIDENTIAL">ROBBERY, RESIDENTIAL</label>
-
-                    <input name="HOMICIDE" type="checkbox" id="HOMICIDE">
-                    <label for="HOMICIDE">HOMICIDE</label>
-
+                        </li>
+                        <li>
+                            <input name="VANDALISM" type="checkbox" id="VANDALISM">
+                            <label for="VANDALISM">VANDALISM</label>
+                        </li>
+                        <li>
+                            <input name="ASSAULT" type="checkbox" id="ASSAULT">
+                            <label for="ASSAULT">ASSAULT</label>
+                        </li>
+                        <li>
+                            <input name="THEFT" type="checkbox" id="THEFT">
+                            <label for="THEFT">THEFT</label>
+                        </li>
+                        <li>
+                            <input name="B & E, RESIDENTIAL" type="checkbox" id="B & E, RESIDENTIAL">
+                             <label for="B & E, RESIDENTIAL">BREAKING & ENTERING, RESIDENTIAL</label>
+                        </li>
+                        <li>
+                            <input name="ASSAULT, SHOOTING" type="checkbox" id="ASSAULT, SHOOTING">
+                            <label for="ASSAULT, SHOOTING">ASSAULT, SHOOTING</label>
+                        </li>
+                        <li>
+                            <input name="ROBBERY, VEHICLE" type="checkbox" id="ROBBERY, VEHICLE">
+                            <label for="ROBBERY, VEHICLE">ROBBERY, VEHICLE</label> 
+                        </li>
+                        <li>
+                            <input name="ROBBERY, RESIDENTIAL" type="checkbox" id="ROBBERY, RESIDENTIAL">
+                            <label for="ROBBERY, RESIDENTIAL">ROBBERY, RESIDENTIAL</label>
+                        </li>
+                        <li>
+                            <input name="HOMICIDE" type="checkbox" id="HOMICIDE">
+                            <label for="HOMICIDE">HOMICIDE</label>
+                        </li>
+                    </ul>
                 </form>
                 
                 <div id= 'map'></div>
